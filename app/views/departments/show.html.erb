@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @department %>
+<%
+=begin%>
+ 
+<div>
+  <%= link_to "Edit this department", edit_department_path(@department) %> |
+  <%= link_to "Back to departments", departments_path %>
+</div> 
+<%
+=end%>

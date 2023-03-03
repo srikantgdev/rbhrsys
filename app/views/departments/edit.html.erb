@@ -1,0 +1,7 @@
+<div>
+  <%= link_to sanitize("&laquo; Back to departments"), departments_path, class: "nav-link mb-2" %>
+</div>
+
+<h3>Editing department</h3>
+
+<%= render "form", department: @department %>

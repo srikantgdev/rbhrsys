@@ -1,0 +1,14 @@
+<div id="<%= dom_id department %>" class="card m-1">
+  <div class="card-title p-2"><%= department.department_name %></div>
+  <div class="card-footer d-flex gap-1">
+    <%= link_to "Edit", edit_department_path(department), class: "btn btn-sm btn-info" %>
+    <%= button_to "Delete", department_path(department),
+      class: "btn btn-sm btn-warning", 
+      method: :delete,
+      data: {
+        turbo_method: :delete,
+        turbo_confirm: "Do you really want to delete [#{department.department_name}] ?"
+      }
+    %>
+  </div>
+</div>

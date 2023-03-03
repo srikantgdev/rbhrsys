@@ -1,0 +1,49 @@
+<%= form_with(model: employee) do |form| %>
+  <% if employee.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card w-50 p-2">
+    <div class="form-field">
+      <%= form.label :fullname %>:
+      <%= form.text_field :fullname, class: "form-control" %>
+    </div>
+    <div class="form-field">
+      <%= form.label :phone %>:
+      <%= form.text_field :phone, class: "form-control", maxlength: 20 %>
+    </div>
+    <div class="form-field">
+      <%= form.label :salary %>:
+      <%= form.number_field :salary, class: "form-control" %>
+    </div>
+    <div class="form-field">
+      <%= form.label :manager %>:
+      <%
+=begin%>
+ <%= select("employee", "manager_id", Employee.all.collect {|e| [e.fullname, e.id]}, {include_blank: true}, class: "form-control") %> 
+<%
+=end%>
+      <%= form.select(:manager_id, Employee.where(:manager_id => nil).collect {|e| [e.fullname, e.id]}, {include_blank: true}, :prompt => 'Select Manager', class: "form-control") %>
+    </div>
+    <div class="field-group">
+      <%= form.label :role %>:
+      <%= form.select(:role_id, Role.all.collect {|r| [r.role_name, r.id]}, {include_blank: true}, class: "form-control") %>
+    </div>
+    <div class="field-group">
+      <%= form.label :hire_date %>:
+      <%= form.date_field :hire_date %>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <%= form.submit class: 'btn btn-sm btn-info' %>
+  </div>
+<% end %>

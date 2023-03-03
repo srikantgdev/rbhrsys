@@ -1,0 +1,8 @@
+<div>
+  <%= link_to sanitize("&laquo; Back to jobs"), jobs_path, class: "nav-link mb-4" %>
+</div>
+
+<h3 class="my-2">Edit job</h3>
+
+<%= render "form", job: @job %>
+

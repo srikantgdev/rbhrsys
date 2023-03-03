@@ -1,0 +1,14 @@
+<p style="color: green" class="alert"><%= notice %></p>
+
+<div class="d-flex gap-2 align-items-center mb-4">
+  <div class="h3 me-auto">Departments </div>
+  <%= link_to "New department", new_department_path, class: "btn btn-sm btn-info" %>
+</div>
+
+<div id="departments" class="container w-75 d-flex p-2">
+  <% @departments.each do |department| %>
+
+    <%= render department %>
+  <% end %>
+</div>
+

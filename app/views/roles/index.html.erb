@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="d-flex align-items-center">
+  <div class="h3 me-auto">Roles</div>
+  <%= link_to "New role", new_role_path, class: "btn btn-sm btn-info" %>
+</div>
+
+<div id="roles">
+  <div class="d-flex gap-1">
+    <% @roles.each do |role| %>
+      <%= render role %>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,11 @@
+<main class="card border-3 mt-5 p-4">
+  <div class="mb-4">
+    <%= link_to sanitize("&laquo; Back to departments"), departments_path, class: "nav-link" %>
+  </div>  
+  <h3>New department</h3>
+
+  <%= render "form", department: @department %>
+
+  <br>
+
+</main>

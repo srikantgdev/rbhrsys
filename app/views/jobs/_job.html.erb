@@ -1,0 +1,4 @@
+<div id="<%= dom_id job %>">
+  <%= job.job_title %> | <%= sprintf("%0.2f", job.salary) %> |
+  <%= link_to "Edit", edit_job_path(job), class: "btn btn-sm btn-secondary" %>
+</div>

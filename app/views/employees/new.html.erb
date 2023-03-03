@@ -1,0 +1,9 @@
+<div class="h3">New employee</div>
+<div class="mt-2 mb-4">
+  <%= link_to sanitize("&laquo; Back to employees"), employees_path, class: "nav-link" %>
+</div>
+
+<%= render "form", employee: @employee %>
+
+<br>
+

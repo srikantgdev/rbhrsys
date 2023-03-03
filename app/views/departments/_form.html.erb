@@ -1,0 +1,27 @@
+<%= form_with(model: department) do |f| %>
+  <% if department.errors.any? %>
+    <div style="color: red">
+      <%
+=begin%>
+ <div><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</div> 
+<%
+=end%>
+
+      <ul>
+        <% department.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card p-2">
+    <div class="form-field">
+      <%= f.label 'Department name:' %>
+      <%= f.text_field :department_name, size: 30 %>
+    </div>
+  </div>
+  <div class="my-4">
+    <%= f.submit class: "btn btn-sm btn-secondary" %>
+  </div>
+<% end %>
